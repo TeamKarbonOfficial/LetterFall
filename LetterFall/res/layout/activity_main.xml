@@ -17,4 +17,22 @@
         android:text="letterfall"
         android:textSize="70sp" />
 
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1" >
+
+        <Button
+            android:id="@+id/ButtonPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Button_Play"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+    </TableLayout>
+
 </RelativeLayout>
