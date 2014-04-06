@@ -7,11 +7,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
 	//Declare
 	Button ButtonPlay;
+	TextView TitleView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,8 @@ public class MainActivity extends Activity {
 		
 		//Initialize
 		ButtonPlay = (Button) findViewById(R.id.ButtonPlay);
-		
+		TitleView = (TextView) findViewById(R.id.Title);
+		//Do sth to change the font.
 		addListenerOnButtonPlay();
 	}
 	
