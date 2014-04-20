@@ -1,5 +1,7 @@
 package com.teamkarbon.android.letterfall;
 
+import java.io.IOException;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
@@ -35,6 +37,14 @@ public class MainActivity extends Activity {
 		
 		//MediaPlayer
 		MediaPlayer MainMusic = MediaPlayer.create(MainActivity.this, R.raw.electrofantasia);
+		try {
+			MainMusic.prepare();
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		MainMusic.setLooping(true);
 		MainMusic.start();
 		
 		//Intent
