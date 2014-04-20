@@ -23,17 +23,20 @@ public class MainActivity extends Activity {
 		//Initialize
 		ButtonPlay = (Button) findViewById(R.id.ButtonPlay);
 		TitleView = (TextView) findViewById(R.id.Title);
+		
+		//Intent
+		Intent gameintent = new Intent(this, GameActivity.class);
+		
 		//Do sth to change the font.
-		addListenerOnButtonPlay();
+		addListenerOnButtonPlay(gameintent);
+		new Welcome(this).show();
 	}
 	
-	private void addListenerOnButtonPlay() {
+	private void addListenerOnButtonPlay(final Intent gameintent) {
 		ButtonPlay.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				//My responsibility to fix this :) Leave it as a comment for now :P
-				//Intent aboutintent = new Intent(this, AboutActivity.class);
-				//startActivity(aboutintent);
+				startActivity(gameintent);
 			}
 		});
 	}
@@ -44,5 +47,4 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
 }
