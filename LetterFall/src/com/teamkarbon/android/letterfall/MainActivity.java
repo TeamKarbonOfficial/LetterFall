@@ -1,5 +1,6 @@
 package com.teamkarbon.android.letterfall;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -24,12 +25,26 @@ public class MainActivity extends Activity {
 		ButtonPlay = (Button) findViewById(R.id.ButtonPlay);
 		TitleView = (TextView) findViewById(R.id.Title);
 		
+		//MediaPlayer
+		MediaPlayer MainMusic = MediaPlayer.create(MainActivity.this, R.raw.electrofantasia);
+		MainMusic.start();
+		
 		//Intent
 		Intent gameintent = new Intent(this, GameActivity.class);
 		
-		//Do sth to change the font.
 		addListenerOnButtonPlay(gameintent);
 		new Welcome(this).show();
+	}
+
+	//Additional Method for MediaPlayer
+	public void PlayMainMusic(MediaPlayer MainMusic) {
+		MainMusic.start();
+	}
+	
+	//Additional Method for MediaPlayer
+	public void StopMainMusic(MediaPlayer MainMusic) {
+		MainMusic.stop();
+		MainMusic.release();
 	}
 	
 	private void addListenerOnButtonPlay(final Intent gameintent) {
