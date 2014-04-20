@@ -26,6 +26,10 @@
             android:name="com.teamkarbon.android.letterfall.GameActivity"
             android:label="@string/title_activity_game" >
         </activity>
+        <activity
+            android:name="com.teamkarbon.android.letterfall.SplashScreen"
+            android:label="@string/title_activity_splash_screen" >
+        </activity>
     </application>
 
 </manifest>

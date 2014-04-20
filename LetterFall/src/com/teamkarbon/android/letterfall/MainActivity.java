@@ -19,7 +19,15 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+        
+		// SplashScreen (Not to use unless necessary)
+    	//boolean Splash = false;
+		//if (Splash = false) {
+		//	Splash = true;
+		//	Intent splashintent = new Intent(this, SplashScreen.class);
+		//	startActivity(splashintent);
+		//}
 		
 		//Initialize
 		ButtonPlay = (Button) findViewById(R.id.ButtonPlay);
