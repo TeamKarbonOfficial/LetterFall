@@ -1,5 +1,7 @@
 package com.teamkarbon.android.letterfall;
 
+import java.io.IOException;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
@@ -20,7 +22,15 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+        
+		// SplashScreen (Not to use unless necessary)
+    	//boolean Splash = false;
+		//if (Splash = false) {
+		//	Splash = true;
+		//	Intent splashintent = new Intent(this, SplashScreen.class);
+		//	startActivity(splashintent);
+		//}
 		
 		//Initialize
 		ButtonPlay = (Button) findViewById(R.id.ButtonPlay);
@@ -31,6 +41,14 @@ public class MainActivity extends Activity {
 		
 		//MediaPlayer
 		MediaPlayer MainMusic = MediaPlayer.create(MainActivity.this, R.raw.electrofantasia);
+		try {
+			MainMusic.prepare();
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		MainMusic.setLooping(true);
 		MainMusic.start();
 		
 		//Intent
