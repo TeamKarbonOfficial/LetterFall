@@ -4,6 +4,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,6 +25,9 @@ public class MainActivity extends Activity {
 		//Initialize
 		ButtonPlay = (Button) findViewById(R.id.ButtonPlay);
 		TitleView = (TextView) findViewById(R.id.Title);
+		
+		Typeface chantelli = Typeface.createFromAsset(getAssets(), "chantelli_antiqua.ttf");
+		TitleView.setTypeface(chantelli);
 		
 		//MediaPlayer
 		MediaPlayer MainMusic = MediaPlayer.create(MainActivity.this, R.raw.electrofantasia);
