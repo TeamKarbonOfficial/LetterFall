@@ -36,8 +36,11 @@ public class MainActivity extends Activity {
 		ButtonPlay = (Button) findViewById(R.id.ButtonPlay);
 		TitleView = (TextView) findViewById(R.id.Title);
 		
+		/*
+		 Below has been commented (Crashing Application)
 		Typeface chantelli = Typeface.createFromAsset(getAssets(), "chantelli_antiqua.ttf");
 		TitleView.setTypeface(chantelli);
+		*/
 		
 		//MediaPlayer
 		MediaPlayer MainMusic = MediaPlayer.create(MainActivity.this, R.raw.electrofantasia);
@@ -83,5 +86,15 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	protected void onPause() {
+		super.onPause();
+		//Stop music
+	}
+
+	protected void onResume() {
+		super.onResume();
+		//Start Music
 	}
 }

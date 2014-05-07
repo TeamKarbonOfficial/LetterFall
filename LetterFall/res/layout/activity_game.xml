@@ -6,15 +6,49 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".GameActivity" >
-
+    tools:context=".GameActivity" >    
+    
+    <!--
     <SurfaceView
         android:id="@+id/surfaceView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentRight="true" />
+	-->
+
+    <TextView
+        android:id="@+id/textViewX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="X Value Loading..."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+   <!--
+   Add into textViewX when you remove comment from SurfaceView
+   android:layout_alignLeft="@+id/surfaceView1"
+   -->
+
+    <TextView
+        android:id="@+id/textViewY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewX"
+        android:layout_below="@+id/textViewX"
+        android:layout_marginTop="24dp"
+        android:text="Y Value Loading..."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textViewZ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewY"
+        android:layout_below="@+id/textViewY"
+        android:layout_marginTop="24dp"
+        android:text="Z Value Loading..."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
