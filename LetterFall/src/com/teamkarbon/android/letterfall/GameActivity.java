@@ -28,12 +28,12 @@ public class GameActivity extends Activity implements SensorEventListener {
 	private long lastUpdate = 0;
 	private float last_x, last_y, last_z;
 
-	/*
+	
 	public TimerTask updateTask;
 	public SurfaceView GraphicScreen;
 	public UpdateHandler UpdHandler = new UpdateHandler();
 	public Timer reusabletimer = new Timer();
-	*/
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class GameActivity extends Activity implements SensorEventListener {
 		Acc = SensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		SensorManager.registerListener(this, Acc, SensorManager.SENSOR_DELAY_GAME);
 
-		/*
+		
 		GraphicScreen = (SurfaceView) findViewById(R.id.surfaceView1);
 		updateTask = new TimerTask() {
 			@Override
@@ -64,8 +64,8 @@ public class GameActivity extends Activity implements SensorEventListener {
 			}
 		};
 		// Let's keep the game at 50 fps, shall we?
-		reusabletimer.schedule(updateTask, 20);
-		 */
+		new Timer().schedule(updateTask, 20);
+		
 	}
 
 	@Override
@@ -75,16 +75,16 @@ public class GameActivity extends Activity implements SensorEventListener {
 		return true;
 	}
 
-	/*
+	
 	public class UpdateHandler extends Handler {
 		// Note: ARG1 =>
 		@Override
 		public void handleMessage(Message msg) {
 			// Ensure that the updateTask runs over and over again.
-			reusabletimer.schedule(updateTask, 20);
+			new Timer().schedule(updateTask, 20);
 		}
 	}
-	*/
+	
 
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
