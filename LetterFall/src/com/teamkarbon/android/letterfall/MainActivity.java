@@ -19,6 +19,8 @@ public class MainActivity extends Activity {
 	Button ButtonPlay;
 	TextView TitleView;
 	
+	MediaPlayer MainMusic;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,32 +44,34 @@ public class MainActivity extends Activity {
 		TitleView.setTypeface(chantelli);
 		*/
 		
-		//MediaPlayer
-		MediaPlayer MainMusic = MediaPlayer.create(MainActivity.this, R.raw.electrofantasia);
-		try {
-			MainMusic.prepare();
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		MainMusic.setLooping(true);
-		MainMusic.start();
-		
 		//Intent
 		Intent gameintent = new Intent(this, GameActivity.class);
 		
+		setupMediaPlayer();
 		addListenerOnButtonPlay(gameintent);
 		new Welcome(this).show();
 	}
+	
+	//MediaPlayer Set Up
+	public void setupMediaPlayer() {
+		MediaPlayer MainMusic = MediaPlayer.create(MainActivity.this, R.raw.electrofantasia);
+		MainMusic.setLooping(true);
+		MainMusic.start();
+	}
 
 	//Additional Method for MediaPlayer
-	public void PlayMainMusic(MediaPlayer MainMusic) {
-		MainMusic.start();
+	public void PlayMainMusic() {
+		//MainMusic.start();
+	}
+	
+	
+	//Additional Method for MediaPlayer
+	public void PauseMainMusic() {
+		MainMusic.pause();
 	}
 	
 	//Additional Method for MediaPlayer
-	public void StopMainMusic(MediaPlayer MainMusic) {
+	public void StopMainMusic() {
 		MainMusic.stop();
 		MainMusic.release();
 	}
@@ -88,13 +92,20 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
-	protected void onPause() {
+	public void onPause() {
 		super.onPause();
-		//Stop music
+		//PauseMainMusic();
 	}
 
 	protected void onResume() {
 		super.onResume();
-		//Start Music
+		//PlayMainMusic();
+	}
+	
+	protected void onDestroy() {
+	    super.onDestroy();
+	    //if(MainMusic != null) {
+	    //	StopMainMusic();
+	    //}
 	}
 }
