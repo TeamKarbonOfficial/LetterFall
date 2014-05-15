@@ -25,8 +25,6 @@ public class GameActivity extends Activity implements SensorEventListener {
 
 	private SensorManager SensorManager;
 	private Sensor Acc;
-	private long lastUpdate = 0;
-	private float last_x, last_y, last_z;
 
 	
 	public TimerTask updateTask;
